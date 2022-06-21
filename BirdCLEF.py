@@ -93,7 +93,7 @@ def get_list_of_audio():
 
 
 def kwh_to_g_co2(emmissions):
-    emmisions = emmisions / 80
+    emmissions = emmissions / 80
     return round(emmissions, 6)
 
 
@@ -146,7 +146,7 @@ if __name__ == '__main__':
         tracker.start()
         df = predict(r"audio/" + code_and_file, col_names)
         emissions = tracker.stop()
-        emissions = kwh_to_g_co2(emmissions)
+        emissions = kwh_to_g_co2(emissions)
         df = df.merge(labels_fr, on='sciName', how='left')
 
         if selected_bird in list(df.comName_en):
