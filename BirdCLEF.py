@@ -141,12 +141,13 @@ if __name__ == '__main__':
         tracker.start()
         df = predict(r"audio/" + code_and_file, col_names)
         emissions = tracker.stop()
+        emissions = round(emissions * 1000, 2)
         df = df.merge(labels_fr, on='sciName', how='left')
 
         if selected_bird in list(df.comName_en):
-            st.success(f"The {selected_bird} has been detected in {time_compute} seconds. It consumed {emissions}")
+            st.success(f"The {selected_bird} has been detected in {time_compute} seconds. It consumed {emissions}Wh")
         else:
-            st.error(f"The {selected_bird} has not been detected. The computation tooked {time_compute} seconds. It consumed {emissions}")
+            st.error(f"The {selected_bird} has not been detected. The computation tooked {time_compute} seconds. It consumed {emissions}Wh")
 
         if df.shape[0] > 0:
             df.loc[:, "url_photo"] = df.comName_en.apply(get_photo_url)
