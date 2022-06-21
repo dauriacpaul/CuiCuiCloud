@@ -94,7 +94,7 @@ def get_list_of_audio():
 
 def kwh_to_g_co2(emmissions):
     emmissions = emmissions / 80
-    return round(emmissions, 10)
+    return round(emmissions, 8)
 
 
 if __name__ == '__main__':
@@ -150,9 +150,9 @@ if __name__ == '__main__':
         df = df.merge(labels_fr, on='sciName', how='left')
 
         if selected_bird in list(df.comName_en):
-            st.success(f"The {selected_bird} has been detected in {time_compute} seconds. It consumed {emissions}gCO₂eq/kWh")
+            st.success(f"The {selected_bird} has been detected in {time_compute} seconds. This prediction consumed {emissions}gCO₂eq/kWh")
         else:
-            st.error(f"The {selected_bird} has not been detected. The computation tooked {time_compute} seconds. It consumed {emissions}gCO₂eq/kWh")
+            st.error(f"The {selected_bird} has not been detected. The computation tooked {time_compute} seconds. This prediction consumed {emissions}gCO₂eq/kWh")
 
         if df.shape[0] > 0:
             df.loc[:, "url_photo"] = df.comName_en.apply(get_photo_url)
