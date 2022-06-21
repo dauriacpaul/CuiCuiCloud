@@ -1,13 +1,13 @@
 # CuiCui
 
-This repository is a demo of a solution to the BirdClef 2022 challenge
+This repository is a demo of a solution to the BirdClef 2022 challenge.
 
 ## Installation of the dependencies
 
-conda env create -f environment.yml
+`conda env create -f environment.yml`
 
 ## Run the demo
 
-Be in the folder. It must contain the BirdCLEF.py file. Then run the command:
+Locate in the folder. It must contain the `BirdCLEF.py` file. Then run the command:
 
-streamlit run BirdCLEF.py
+`streamlit run BirdCLEF.py`
