@@ -83,7 +83,6 @@ pooch==1.6.0
 praat-parselmouth==0.4.1
 prometheus-client==0.14.1
 prompt-toolkit==3.0.29
-protobuf==3.19.4
 psutil==5.9.1
 pure-eval==0.2.2
 py-cpuinfo==8.0.0
