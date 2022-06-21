@@ -138,6 +138,7 @@ if __name__ == '__main__':
         col_names = ['ts_start', 'ts_stop', 'sciName', 'comName_en', 'confidence']
         
         tracker = EmissionsTracker()
+        tracker.start()
         df = predict(r"audio/" + code_and_file, col_names)
         emissions = tracker.stop()
         df = df.merge(labels_fr, on='sciName', how='left')
