@@ -1,0 +1,2 @@
+;ts_start;ts_stop;sciName;comName_en;confidence;comName;speciesCode;category;taxonOrder;bandingCodes;comNameCodes;sciNameCodes;order;familyCode;familyComName;familySciName;extinct;extinctYear;photo_url
+0;0;3.0;Carduelis carduelis;European Goldfinch;0.9999206;Chardonneret élégant;eurgol;species;31491.0;['EUGO'];[];['CACA'];Passeriformes;fringi1;Finches, Euphonias, and Allies;Fringillidae;;;https://upload.wikimedia.org/wikipedia/commons/7/7c/Carduelis_carduelis_close_up.jpg

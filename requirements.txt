@@ -1,0 +1,4 @@
+librosa==0.9.1
+plotly==5.8.2
+praat-parselmouth==0.4.1
+streamlit==1.10.0
