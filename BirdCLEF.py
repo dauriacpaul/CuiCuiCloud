@@ -92,6 +92,11 @@ def get_list_of_audio():
     return list_of_files
 
 
+def kwh_to_g_co2(emmissions):
+    emmisions = emmisions / 80
+    return round(emmissions, 6)
+
+
 if __name__ == '__main__':
     st.set_page_config(layout="wide", page_icon="image/favicon_blanc.png")
     st.sidebar.image("image/logo_aqsone_noir_Xsmall.png")
@@ -141,13 +146,13 @@ if __name__ == '__main__':
         tracker.start()
         df = predict(r"audio/" + code_and_file, col_names)
         emissions = tracker.stop()
-        emissions = round(emissions * 1000, 4)
+        emissions = kwh_to_g_co2(emmissions)
         df = df.merge(labels_fr, on='sciName', how='left')
 
         if selected_bird in list(df.comName_en):
-            st.success(f"The {selected_bird} has been detected in {time_compute} seconds. It consumed {emissions}Wh")
+            st.success(f"The {selected_bird} has been detected in {time_compute} seconds. It consumed {emissions}gCO₂eq/kWh")
         else:
-            st.error(f"The {selected_bird} has not been detected. The computation tooked {time_compute} seconds. It consumed {emissions}Wh")
+            st.error(f"The {selected_bird} has not been detected. The computation tooked {time_compute} seconds. It consumed {emissions}gCO₂eq/kWh")
 
         if df.shape[0] > 0:
             df.loc[:, "url_photo"] = df.comName_en.apply(get_photo_url)
