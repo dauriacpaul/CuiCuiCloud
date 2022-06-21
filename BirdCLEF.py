@@ -141,7 +141,7 @@ if __name__ == '__main__':
         tracker.start()
         df = predict(r"audio/" + code_and_file, col_names)
         emissions = tracker.stop()
-        emissions = round(emissions * 1000, 2)
+        emissions = round(emissions * 1000, 4)
         df = df.merge(labels_fr, on='sciName', how='left')
 
         if selected_bird in list(df.comName_en):
