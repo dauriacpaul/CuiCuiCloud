@@ -94,7 +94,7 @@ def get_list_of_audio():
 
 def kwh_to_g_co2(emmissions):
     emmissions = emmissions / 80
-    return round(emmissions, 6)
+    return emmissions
 
 
 if __name__ == '__main__':
