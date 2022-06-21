@@ -121,10 +121,8 @@ if __name__ == '__main__':
         st.metric("Audio Quality (out of 5):", quality)
         st.map(metadata, zoom=4)
     update_config(duration, metadata)
-    # tracker = EmissionsTracker()
     start = time.time()
     labels_fr = pd.read_json(config.LABELS_TRANS_FILE)
-    # emissions = tracker.stop()
     time_compute = round(time.time() - start, 2)
     st.sidebar.write("File selected:", code_and_file)
     scientific_name_selected_bird = df_code.loc[df_code.Code == code_random_bird].sciName.iloc[0]
@@ -138,15 +136,18 @@ if __name__ == '__main__':
     with col3:
         st.header("Results")
         col_names = ['ts_start', 'ts_stop', 'sciName', 'comName_en', 'confidence']
+        
+        tracker = EmissionsTracker()
         df = predict(r"audio/" + code_and_file, col_names)
+        emissions = tracker.stop()
         df = df.merge(labels_fr, on='sciName', how='left')
 
         if selected_bird in list(df.comName_en):
             st.success(f"The {selected_bird} has been detected in {time_compute} seconds.")
-                       # f"Ti consumed {emissions}")
+                       f"It consumed {emissions}")
         else:
             st.error(f"The {selected_bird} has not been detected. The computation tooked {time_compute} seconds.")
-                     # f"It consumed {emissions}")
+                     f"It consumed {emissions}")
 
         if df.shape[0] > 0:
             df.loc[:, "url_photo"] = df.comName_en.apply(get_photo_url)
