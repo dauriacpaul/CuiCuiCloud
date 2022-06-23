@@ -137,6 +137,8 @@ if __name__ == '__main__':
     st.sidebar.write("English name: ", selected_bird)
     st.sidebar.write("Scientific name:", scientific_name_selected_bird)
     st.sidebar.write("French name:", selected_bird_fr)
+    if st.sidebar.button('Select another audio recording'):
+        random = random.random()
 
     with col3:
         st.header("Results")
